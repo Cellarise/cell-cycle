@@ -1,1 +1,25 @@
-# Created by .ignore support plugin (hsz.mobi)
+~$*
+.idea/
+/**/.idea/
+/Tools/
+/Build/
+/Temp/
+/bower_components/
+/Reports/
+/rsa-cert.*
+/rsa-key.*
+/config.json
+/*.log
+/Auto_Build/
+/doc/html
+/Test/images
+/**/node_modules/**/*.*
+/**/client/source/config/config.json
+/**/client/source/config/routes.json
+/**/client/source/config/routes/**/*.*
+/**/client/source/config/stores/**/*.*
+/themes/metronic v4.1.0
+*.orig
+loopback.json
+/client/index.html
+/**/client/public/*.*
