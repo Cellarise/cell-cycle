@@ -2,7 +2,7 @@
   "author": "John Barry",
   "name": "cell-cycle",
   "description": "The Cellarise Cycle framework.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Cellarise/cell-cycle.git"
@@ -113,8 +113,8 @@
         }
       }
     },
-    "build": "n/a",
-    "buildTimestamp": "2016-08-11T14:09:48.647Z",
+    "build": "5",
+    "buildTimestamp": "2016-08-11T14:14:29.708Z",
     "adminEmail": "mail@nhvr.gov.au"
   },
   "engines": {
