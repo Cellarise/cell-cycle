@@ -13,7 +13,7 @@
 /Auto_Build/
 /doc/html
 /Test/images
-/**/node_modules/**/*.*
+node_modules/
 /**/client/source/config/config.json
 /**/client/source/config/routes.json
 /**/client/source/config/routes/**/*.*
