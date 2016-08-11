@@ -1,0 +1,172 @@
+{
+  "author": "John Barry",
+  "name": "cell-cycle",
+  "description": "The Cellarise Cycle framework.",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cellarise/cell-cycle.git"
+  },
+  "scripts": {
+    "code analysis": "cpm gulp code_analysis",
+    "code docs": "cpm esdoc",
+    "webpack-dev": "cpm gulp webpack",
+    "webpack-test": "cpm gulp webpackTest",
+    "webpack-package": "cpm gulp webpackPkg",
+    "webpack-dev-compile-boot": "cgulp webpackCompileTemplates",
+    "webpack-test-compile-boot": "cgulp webpackCompileTemplatesTestMode",
+    "test-webpacked": "cpm gulp webpack_test",
+    "test-quick": "cgulp quick_test",
+    "jira-step-sync": "cgulp step_sync",
+    "write-coverage": "cgulp write_coverage",
+    "build": "cpm gulp product_all",
+    "start-selenium": "cpm gulp start-selenium",
+    "start-server-test": "cpm gulp start-loopback",
+    "kill-selenium": "cgulp kill-selenium",
+    "kill-server-test": "cgulp kill-loopback",
+    "start-webpack-server": "cgulp webpackDevServer",
+    "start-server-dev": "set DEBUG=*&&node server/server.js",
+    "start": "node server/server.js",
+    "module-update-check": "cpm gulp david_report_all"
+  },
+  "config": {
+    "private": true,
+    "projectCode": "CYCLE",
+    "test": {
+      "browser": {
+        "browsers": {
+          "chrome": {
+            "browserName": "chrome",
+            "chromeOptions": {
+              "args": [
+                "--enable-memory-info",
+                "--start-maximized"
+              ]
+            }
+          },
+          "firefox": {
+            "browserName": "firefox"
+          },
+          "IE11": {
+            "browserName": "internet explorer",
+            "seleniumProtocol": "WebDriver",
+            "version": "11"
+          },
+          "IE10": {
+            "browserName": "internet explorer",
+            "version": "10"
+          },
+          "IE09": {
+            "browserName": "internet explorer",
+            "version": "9"
+          }
+        }
+      },
+      "apiServer": {}
+    },
+    "coverage": {
+      "watermarks": {
+        "statements": [
+          0,
+          80
+        ],
+        "lines": [
+          0,
+          80
+        ],
+        "functions": [
+          0,
+          80
+        ],
+        "branches": [
+          0,
+          80
+        ]
+      },
+      "stats": {
+        "lines": {
+          "pctSkipped": 0,
+          "pct": 50,
+          "colour": "yellow"
+        },
+        "branches": {
+          "pctSkipped": 0,
+          "pct": 100,
+          "colour": "brightgreen"
+        },
+        "statements": {
+          "pctSkipped": 0,
+          "pct": 50,
+          "colour": "yellow"
+        },
+        "functions": {
+          "pctSkipped": 0,
+          "pct": 100,
+          "colour": "brightgreen"
+        },
+        "skipped": {
+          "pct": 0
+        },
+        "overall": {
+          "pct": 75,
+          "colour": "yellow"
+        }
+      }
+    },
+    "build": "n/a",
+    "buildTimestamp": "2016-08-11T13:48:12.257Z",
+    "adminEmail": "mail@nhvr.gov.au"
+  },
+  "engines": {
+    "node": "4.4.7"
+  },
+  "main": "./lib",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-react-display-name"
+    ],
+    "sourceMaps": true
+  },
+  "directories": {
+    "lib": "lib",
+    "bin": "bin",
+    "doc": "doc",
+    "tasks": "tasks",
+    "templates": "templates",
+    "test": "Test",
+    "testLibrary": "Test\\libraries",
+    "reports": "Reports",
+    "build": "Build",
+    "config": "client\\source\\config",
+    "client": "client",
+    "server": "server",
+    "common": "common",
+    "packages": "jspm_packages"
+  },
+  "license": "MIT License (MIT)",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "dependencies": {
+    "bowser": "^1.0.0",
+    "classnames": "^2.2.0",
+    "immutable": "^3.7.6",
+    "moment": "^2.11.0",
+    "ramda": "^0.21.0",
+    "react": "15.0.2"
+  },
+  "optionalDependencies": {},
+  "bugs": {
+    "url": "https://github.com/Cellarise/cell-cycle/issues"
+  },
+  "homepage": "https://github.com/Cellarise/cell-cycle",
+  "maintainers": [{
+    "name": "cellarise",
+    "email": "cellarise@outlook.com"
+  }]
+}

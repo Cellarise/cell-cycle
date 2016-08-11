@@ -1,24 +1,3 @@
-# cell-cycle
-[![view on npm](http://img.shields.io/npm/v/cell-cycle.svg?style=flat)](https://www.npmjs.org/package/cell-cycle)
-[![npm module downloads per month](http://img.shields.io/npm/dm/cell-cycle.svg?style=flat)](https://www.npmjs.org/package/cell-cycle)
-[![Dependency status](https://david-dm.org/Cellarise/cell-cycle.svg?style=flat)](https://david-dm.org/Cellarise/cell-cycle)
-[![Build Status](https://travis-ci.org/Cellarise/cell-cycle.svg?branch=master)](https://travis-ci.org/Cellarise/cell-cycle)
-[![Test Coverage](https://img.shields.io/badge/coverage -75%25_skipped:0%25-yellow.svg?style=flat)](https://www.npmjs.org/package/cell-cycle)
-
-> The Cellarise Cycle framework.
-
-
-## Installation
-
-````sh
-npm install cell-cycle --save
-````
-
-## Configuration
-
-
-
-
 ## API
 ### Modules
 <dl>
@@ -215,28 +194,3 @@ Test steps results will be output using spec reporter.
 -
 
 *documented by [jsdoc-to-markdown](https://github.com/75lb/jsdoc-to-markdown)*.
-
-
-# Changelog
-
-<table style="width:100%;border-spacing:0px;border-collapse:collapse;margin:0px;padding:0px;border-width:0px;">
-  <tr>
-    <th style="width:20px;text-align:center;"></th>
-    <th style="width:80px;text-align:center;">Type</th>
-    <th style="width:80px;text-align:left;">ID</th>
-    <th style="text-align:left;">Summary</th>
-  </tr>
-    
-</table>
-
-
-
-# License
-
-MIT License (MIT). All rights not explicitly granted in the license are reserved.
-
-Copyright (c) 2015 John Barry
-## Dependencies
-[asap@2.0.4](&quot;git+https://github.com/kriskowal/asap&quot;) - &quot;MIT&quot;, [bowser@1.4.4](&quot;git+https://github.com/ded/bowser&quot;) - &quot;MIT&quot;, [cell-cycle@0.0.0](&quot;https://github.com/Cellarise/cell-cycle&quot;) - &quot;MIT License (MIT)&quot;, [classnames@2.2.5](&quot;git+https://github.com/JedWatson/classnames&quot;) - &quot;MIT&quot;, [core-js@1.2.7](&quot;git+https://github.com/zloirock/core-js&quot;) - &quot;MIT&quot;, [encoding@0.1.12](&quot;git+https://github.com/andris9/encoding&quot;) - &quot;MIT&quot;, [fbjs@0.8.3](&quot;git+https://github.com/facebook/fbjs&quot;) - &quot;BSD-3-Clause&quot;, [iconv-lite@0.4.13](&quot;https://github.com/ashtuchkin/iconv-lite&quot;) - &quot;MIT&quot;, [immutable@3.8.1](&quot;https://github.com/facebook/immutable-js&quot;) - &quot;BSD-3-Clause&quot;, [is-stream@1.1.0](&quot;git+https://github.com/sindresorhus/is-stream&quot;) - &quot;MIT&quot;, [isomorphic-fetch@2.2.1](&quot;git+https://github.com/matthew-andrews/isomorphic-fetch&quot;) - &quot;MIT&quot;, [js-tokens@1.0.3](&quot;git+https://github.com/lydell/js-tokens&quot;) - &quot;MIT&quot;, [loose-envify@1.2.0](&quot;https://github.com/zertosh/loose-envify&quot;) - &quot;MIT&quot;, [moment@2.14.1](&quot;git+https://github.com/moment/moment&quot;) - &quot;MIT&quot;, [node-fetch@1.6.0](&quot;git+https://github.com/bitinn/node-fetch&quot;) - &quot;MIT&quot;, [object-assign@4.1.0](&quot;git+https://github.com/sindresorhus/object-assign&quot;) - &quot;MIT&quot;, [promise@7.1.1](&quot;git+https://github.com/then/promise&quot;) - &quot;MIT&quot;, [ramda@0.21.0](&quot;https://github.com/ramda/ramda&quot;) - &quot;MIT&quot;, [react@15.0.2](&quot;git+https://github.com/facebook/react&quot;) - &quot;BSD-3-Clause&quot;, [ua-parser-js@0.7.10](&quot;git+https://github.com/faisalman/ua-parser-js&quot;) - [&quot;GPLv2&quot;,&quot;MIT&quot;], [whatwg-fetch@1.0.0](&quot;git+https://github.com/github/fetch&quot;) - &quot;MIT&quot;, 
-*documented by [npm-licenses](http://github.com/AceMetrix/npm-license.git)*.
-
