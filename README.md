@@ -28,6 +28,12 @@ npm install cell-cycle --save
 <dt><a href="#module_utils/coverageStats">utils/coverageStats</a> ⇒ <code>Object</code></dt>
 <dd><p>Coverage statistic utilities</p>
 </dd>
+<dt><a href="#module_tasks/codeAnalysisTasks">tasks/codeAnalysisTasks</a></dt>
+<dd><p>A module to add gulp tasks which execute static code analysis.</p>
+</dd>
+<dt><a href="#module_tasks/coverageStatsTasks">tasks/coverageStatsTasks</a></dt>
+<dd><p>A module to add a gulp task which calculates coverage stats from the Istanbul reporter json-summary.</p>
+</dd>
 <dt><a href="#module_tasks/defaultTasks">tasks/defaultTasks</a></dt>
 <dd><p>A module to add a gulp task which executes the default task.</p>
 </dd>
@@ -133,6 +139,61 @@ Calculate coverage stats from an istanbul coverage.json reportand append to pro
 
 -
 
+<a name="module_tasks/codeAnalysisTasks"></a>
+### tasks/codeAnalysisTasks
+A module to add gulp tasks which execute static code analysis.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| gulp | <code>Gulp</code> | The gulp module |
+| context | <code>Object</code> | An object containing the following properties: |
+| context.cwd | <code>String</code> | The current working directory |
+| context.package | <code>Object</code> | The package.json for the module |
+| context.argv | <code>Array</code> | The arguments past to the gulp task |
+| context.logger | <code>bunyan</code> | A logger matching the bunyan API |
+
+
+-
+
+<a name="module_tasks/codeAnalysisTasks..code_analysis"></a>
+#### `tasks/codeAnalysisTasks~code_analysis` ⇒ <code>through2</code>
+A gulp build task to execute static code analysis on the files at `package.json:directories.lib`.
+The report results are saved to `package.json:directories.reports`
+
+**Kind**: inner property of <code>[tasks/codeAnalysisTasks](#module_tasks/codeAnalysisTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/coverageStatsTasks"></a>
+### tasks/coverageStatsTasks
+A module to add a gulp task which calculates coverage stats from the Istanbul reporter json-summary.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| gulp | <code>Gulp</code> | The gulp module |
+| context | <code>Object</code> | An object containing the following properties: |
+| context.cwd | <code>String</code> | The current working directory |
+| context.package | <code>json</code> | The package.json for the module |
+| context.argv | <code>Array</code> | The arguments past to the gulp task |
+| context.logger | <code>bunyan</code> | A logger matching the bunyan API |
+
+
+-
+
+<a name="module_tasks/coverageStatsTasks..coverage_stats"></a>
+#### `tasks/coverageStatsTasks~coverage_stats` ⇒ <code>through2</code>
+A gulp build task to calculate coverage stats from the Istanbul reporter json-summary.
+Coverage stats are appended to package.json config.coverage.stats property.
+The coverage stats include an overall coverage percentage and badge colour.
+
+**Kind**: inner property of <code>[tasks/coverageStatsTasks](#module_tasks/coverageStatsTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
 <a name="module_tasks/defaultTasks"></a>
 ### tasks/defaultTasks
 A module to add a gulp task which executes the default task.
@@ -178,6 +239,9 @@ A module to add gulp tasks which run test steps.
 * [tasks/testTasks](#module_tasks/testTasks)
   * [`~instrument`](#module_tasks/testTasks..instrument) ⇒ <code>through2</code>
   * [`~test_cover`](#module_tasks/testTasks..test_cover) ⇒ <code>through2</code>
+  * [`~test_cover`](#module_tasks/testTasks..test_cover) ⇒ <code>through2</code>
+  * [`~test_cover`](#module_tasks/testTasks..test_cover) ⇒ <code>through2</code>
+  * [`~write_coverage`](#module_tasks/testTasks..write_coverage) ⇒ <code>through2</code>
   * [`~test`](#module_tasks/testTasks..test) ⇒ <code>through2</code>
 
 
@@ -198,6 +262,39 @@ Istanbul will override the node require() function to redirect to the instrument
 A gulp build task to run test steps and calculate test coverage.
 Test steps results will be output using mocha-bamboo-reporter-bgo reporter.
 This task executes the Instrument task as a prerequisite.
+
+**Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/testTasks..test_cover"></a>
+#### `tasks/testTasks~test_cover` ⇒ <code>through2</code>
+A gulp build task to run test steps and calculate test coverage (but not output test coverage to prevent
+gulp-istanbul issues with webdriverIO).
+Test steps results will be output using mocha-bamboo-reporter-bgo reporter.
+This task executes the Instrument task as a prerequisite.
+
+**Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/testTasks..test_cover"></a>
+#### `tasks/testTasks~test_cover` ⇒ <code>through2</code>
+A gulp build task to run test steps and calculate test coverage (but not output test coverage to prevent
+gulp-istanbul issues with webdriverIO).
+Test steps results will be output using mocha-bamboo-reporter-bgo reporter.
+This task executes the Instrument task as a prerequisite.
+
+**Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/testTasks..write_coverage"></a>
+#### `tasks/testTasks~write_coverage` ⇒ <code>through2</code>
+A gulp build task to write coverage.
 
 **Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
 **Returns**: <code>through2</code> - stream  
@@ -249,6 +346,6 @@ MIT License (MIT). All rights not explicitly granted in the license are reserved
 
 Copyright (c) 2015 John Barry
 ## Dependencies
-[asap@2.0.4](&quot;git+https://github.com/kriskowal/asap&quot;) - &quot;MIT&quot;, [bowser@1.4.4](&quot;git+https://github.com/ded/bowser&quot;) - &quot;MIT&quot;, [cell-cycle@0.0.0](&quot;https://github.com/Cellarise/cell-cycle&quot;) - &quot;MIT License (MIT)&quot;, [classnames@2.2.5](&quot;git+https://github.com/JedWatson/classnames&quot;) - &quot;MIT&quot;, [core-js@1.2.7](&quot;git+https://github.com/zloirock/core-js&quot;) - &quot;MIT&quot;, [encoding@0.1.12](&quot;git+https://github.com/andris9/encoding&quot;) - &quot;MIT&quot;, [fbjs@0.8.3](&quot;git+https://github.com/facebook/fbjs&quot;) - &quot;BSD-3-Clause&quot;, [iconv-lite@0.4.13](&quot;https://github.com/ashtuchkin/iconv-lite&quot;) - &quot;MIT&quot;, [immutable@3.8.1](&quot;https://github.com/facebook/immutable-js&quot;) - &quot;BSD-3-Clause&quot;, [is-stream@1.1.0](&quot;git+https://github.com/sindresorhus/is-stream&quot;) - &quot;MIT&quot;, [isomorphic-fetch@2.2.1](&quot;git+https://github.com/matthew-andrews/isomorphic-fetch&quot;) - &quot;MIT&quot;, [js-tokens@1.0.3](&quot;git+https://github.com/lydell/js-tokens&quot;) - &quot;MIT&quot;, [loose-envify@1.2.0](&quot;https://github.com/zertosh/loose-envify&quot;) - &quot;MIT&quot;, [moment@2.14.1](&quot;git+https://github.com/moment/moment&quot;) - &quot;MIT&quot;, [node-fetch@1.6.0](&quot;git+https://github.com/bitinn/node-fetch&quot;) - &quot;MIT&quot;, [object-assign@4.1.0](&quot;git+https://github.com/sindresorhus/object-assign&quot;) - &quot;MIT&quot;, [promise@7.1.1](&quot;git+https://github.com/then/promise&quot;) - &quot;MIT&quot;, [ramda@0.21.0](&quot;https://github.com/ramda/ramda&quot;) - &quot;MIT&quot;, [react@15.0.2](&quot;git+https://github.com/facebook/react&quot;) - &quot;BSD-3-Clause&quot;, [ua-parser-js@0.7.10](&quot;git+https://github.com/faisalman/ua-parser-js&quot;) - [&quot;GPLv2&quot;,&quot;MIT&quot;], [whatwg-fetch@1.0.0](&quot;git+https://github.com/github/fetch&quot;) - &quot;MIT&quot;, 
+[asap@2.0.4](&quot;git+https://github.com/kriskowal/asap&quot;) - &quot;MIT&quot;, [bowser@1.4.4](&quot;git+https://github.com/ded/bowser&quot;) - &quot;MIT&quot;, [cell-cycle@0.0.0](&quot;https://github.com/Cellarise/cell-cycle&quot;) - &quot;MIT License (MIT)&quot;, [classnames@2.2.5](&quot;git+https://github.com/JedWatson/classnames&quot;) - &quot;MIT&quot;, [core-js@1.2.7](&quot;git+https://github.com/zloirock/core-js&quot;) - &quot;MIT&quot;, [encoding@0.1.12](&quot;git+https://github.com/andris9/encoding&quot;) - &quot;MIT&quot;, [fbjs@0.8.3](&quot;git+https://github.com/facebook/fbjs&quot;) - &quot;BSD-3-Clause&quot;, [iconv-lite@0.4.13](&quot;https://github.com/ashtuchkin/iconv-lite&quot;) - &quot;MIT&quot;, [immutable@3.8.1](&quot;https://github.com/facebook/immutable-js&quot;) - &quot;BSD-3-Clause&quot;, [is-stream@1.1.0](&quot;git+https://github.com/sindresorhus/is-stream&quot;) - &quot;MIT&quot;, [isomorphic-fetch@2.2.1](&quot;git+https://github.com/matthew-andrews/isomorphic-fetch&quot;) - &quot;MIT&quot;, [js-tokens@1.0.3](&quot;git+https://github.com/lydell/js-tokens&quot;) - &quot;MIT&quot;, [loose-envify@1.2.0](&quot;https://github.com/zertosh/loose-envify&quot;) - &quot;MIT&quot;, [moment@2.14.1](&quot;git+https://github.com/moment/moment&quot;) - &quot;MIT&quot;, [node-fetch@1.6.0](&quot;git+https://github.com/bitinn/node-fetch&quot;) - &quot;MIT&quot;, [object-assign@4.1.0](&quot;git+https://github.com/sindresorhus/object-assign&quot;) - &quot;MIT&quot;, [promise@7.1.1](&quot;git+https://github.com/then/promise&quot;) - &quot;MIT&quot;, [ramda@0.22.1](&quot;https://github.com/ramda/ramda&quot;) - &quot;MIT&quot;, [react@15.3.0](&quot;git+https://github.com/facebook/react&quot;) - &quot;BSD-3-Clause&quot;, [ua-parser-js@0.7.10](&quot;git+https://github.com/faisalman/ua-parser-js&quot;) - [&quot;GPLv2&quot;,&quot;MIT&quot;], [whatwg-fetch@1.0.0](&quot;git+https://github.com/github/fetch&quot;) - &quot;MIT&quot;, 
 *documented by [npm-licenses](http://github.com/AceMetrix/npm-license.git)*.
 

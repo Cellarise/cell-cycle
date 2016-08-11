@@ -114,7 +114,7 @@
       }
     },
     "build": "n/a",
-    "buildTimestamp": "2016-08-11T14:04:04.483Z",
+    "buildTimestamp": "2016-08-11T14:09:48.647Z",
     "adminEmail": "mail@nhvr.gov.au"
   },
   "engines": {
@@ -165,10 +165,8 @@
     "url": "https://github.com/Cellarise/cell-cycle/issues"
   },
   "homepage": "https://github.com/Cellarise/cell-cycle",
-  "maintainers": [
-    {
-      "name": "cellarise",
-      "email": "cellarise@outlook.com"
-    }
-  ]
+  "maintainers": [{
+    "name": "cellarise",
+    "email": "cellarise@outlook.com"
+  }]
 }

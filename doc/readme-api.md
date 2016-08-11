@@ -7,6 +7,12 @@
 <dt><a href="#module_utils/coverageStats">utils/coverageStats</a> ⇒ <code>Object</code></dt>
 <dd><p>Coverage statistic utilities</p>
 </dd>
+<dt><a href="#module_tasks/codeAnalysisTasks">tasks/codeAnalysisTasks</a></dt>
+<dd><p>A module to add gulp tasks which execute static code analysis.</p>
+</dd>
+<dt><a href="#module_tasks/coverageStatsTasks">tasks/coverageStatsTasks</a></dt>
+<dd><p>A module to add a gulp task which calculates coverage stats from the Istanbul reporter json-summary.</p>
+</dd>
 <dt><a href="#module_tasks/defaultTasks">tasks/defaultTasks</a></dt>
 <dd><p>A module to add a gulp task which executes the default task.</p>
 </dd>
@@ -112,6 +118,61 @@ Calculate coverage stats from an istanbul coverage.json reportand append to pro
 
 -
 
+<a name="module_tasks/codeAnalysisTasks"></a>
+### tasks/codeAnalysisTasks
+A module to add gulp tasks which execute static code analysis.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| gulp | <code>Gulp</code> | The gulp module |
+| context | <code>Object</code> | An object containing the following properties: |
+| context.cwd | <code>String</code> | The current working directory |
+| context.package | <code>Object</code> | The package.json for the module |
+| context.argv | <code>Array</code> | The arguments past to the gulp task |
+| context.logger | <code>bunyan</code> | A logger matching the bunyan API |
+
+
+-
+
+<a name="module_tasks/codeAnalysisTasks..code_analysis"></a>
+#### `tasks/codeAnalysisTasks~code_analysis` ⇒ <code>through2</code>
+A gulp build task to execute static code analysis on the files at `package.json:directories.lib`.
+The report results are saved to `package.json:directories.reports`
+
+**Kind**: inner property of <code>[tasks/codeAnalysisTasks](#module_tasks/codeAnalysisTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/coverageStatsTasks"></a>
+### tasks/coverageStatsTasks
+A module to add a gulp task which calculates coverage stats from the Istanbul reporter json-summary.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| gulp | <code>Gulp</code> | The gulp module |
+| context | <code>Object</code> | An object containing the following properties: |
+| context.cwd | <code>String</code> | The current working directory |
+| context.package | <code>json</code> | The package.json for the module |
+| context.argv | <code>Array</code> | The arguments past to the gulp task |
+| context.logger | <code>bunyan</code> | A logger matching the bunyan API |
+
+
+-
+
+<a name="module_tasks/coverageStatsTasks..coverage_stats"></a>
+#### `tasks/coverageStatsTasks~coverage_stats` ⇒ <code>through2</code>
+A gulp build task to calculate coverage stats from the Istanbul reporter json-summary.
+Coverage stats are appended to package.json config.coverage.stats property.
+The coverage stats include an overall coverage percentage and badge colour.
+
+**Kind**: inner property of <code>[tasks/coverageStatsTasks](#module_tasks/coverageStatsTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
 <a name="module_tasks/defaultTasks"></a>
 ### tasks/defaultTasks
 A module to add a gulp task which executes the default task.
@@ -157,6 +218,9 @@ A module to add gulp tasks which run test steps.
 * [tasks/testTasks](#module_tasks/testTasks)
   * [`~instrument`](#module_tasks/testTasks..instrument) ⇒ <code>through2</code>
   * [`~test_cover`](#module_tasks/testTasks..test_cover) ⇒ <code>through2</code>
+  * [`~test_cover`](#module_tasks/testTasks..test_cover) ⇒ <code>through2</code>
+  * [`~test_cover`](#module_tasks/testTasks..test_cover) ⇒ <code>through2</code>
+  * [`~write_coverage`](#module_tasks/testTasks..write_coverage) ⇒ <code>through2</code>
   * [`~test`](#module_tasks/testTasks..test) ⇒ <code>through2</code>
 
 
@@ -177,6 +241,39 @@ Istanbul will override the node require() function to redirect to the instrument
 A gulp build task to run test steps and calculate test coverage.
 Test steps results will be output using mocha-bamboo-reporter-bgo reporter.
 This task executes the Instrument task as a prerequisite.
+
+**Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/testTasks..test_cover"></a>
+#### `tasks/testTasks~test_cover` ⇒ <code>through2</code>
+A gulp build task to run test steps and calculate test coverage (but not output test coverage to prevent
+gulp-istanbul issues with webdriverIO).
+Test steps results will be output using mocha-bamboo-reporter-bgo reporter.
+This task executes the Instrument task as a prerequisite.
+
+**Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/testTasks..test_cover"></a>
+#### `tasks/testTasks~test_cover` ⇒ <code>through2</code>
+A gulp build task to run test steps and calculate test coverage (but not output test coverage to prevent
+gulp-istanbul issues with webdriverIO).
+Test steps results will be output using mocha-bamboo-reporter-bgo reporter.
+This task executes the Instrument task as a prerequisite.
+
+**Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
+**Returns**: <code>through2</code> - stream  
+
+-
+
+<a name="module_tasks/testTasks..write_coverage"></a>
+#### `tasks/testTasks~write_coverage` ⇒ <code>through2</code>
+A gulp build task to write coverage.
 
 **Kind**: inner property of <code>[tasks/testTasks](#module_tasks/testTasks)</code>  
 **Returns**: <code>through2</code> - stream  
