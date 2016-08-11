@@ -157,16 +157,18 @@
     "classnames": "^2.2.0",
     "immutable": "^3.7.6",
     "moment": "^2.11.0",
-    "ramda": "^0.21.0",
-    "react": "15.0.2"
+    "ramda": "^0.22.1",
+    "react": "^15.3.0"
   },
   "optionalDependencies": {},
   "bugs": {
     "url": "https://github.com/Cellarise/cell-cycle/issues"
   },
   "homepage": "https://github.com/Cellarise/cell-cycle",
-  "maintainers": [{
-    "name": "cellarise",
-    "email": "cellarise@outlook.com"
-  }]
+  "maintainers": [
+    {
+      "name": "cellarise",
+      "email": "cellarise@outlook.com"
+    }
+  ]
 }
