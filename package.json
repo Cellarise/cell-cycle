@@ -155,7 +155,7 @@
   "dependencies": {
     "bowser": "^1.0.0",
     "classnames": "^2.2.0",
-    "immutable": "^3.8.1",
+    "immutable": "^3.8.2",
     "moment": "^2.11.0",
     "ramda": "^0.24.1",
     "react": "^16.0.0"
