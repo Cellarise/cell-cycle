@@ -1,0 +1,94 @@
+{
+  "basemaps": [
+    {
+      "name": "Google Roadmap",
+      "printOptions": {
+        "baseMapLayers": [
+          {
+            "layerType": "ArcGISTiledMapServiceLayer",
+            "url": "http://services.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer",
+            "visibility": true,
+            "opacity": 1,
+            "title": "World_Street_Map"
+          }
+        ],
+        "title": "Topographic"
+      }
+    },
+    {
+      "name": "Google Hybrid",
+      "printOptions": {
+        "baseMapLayers": [
+          {
+            "layerType": "ArcGISTiledMapServiceLayer",
+            "url": "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer",
+            "visibility": true,
+            "opacity": 1,
+            "title": "World_Imagery_Map"
+          },
+          {
+            "layerType": "ArcGISTiledMapServiceLayer",
+            "url": "http://services.arcgisonline.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer",
+            "visibility": true,
+            "opacity": 1,
+            "title": "World_Imagery_Labels"
+          }
+        ],
+        "title": "Satellite"
+      }
+    },
+    {
+      "name": "Google Satellite",
+      "printOptions": {
+        "baseMapLayers": [
+          {
+            "layerType": "ArcGISTiledMapServiceLayer",
+            "url": "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer",
+            "visibility": true,
+            "opacity": 1,
+            "title": "World_Imagery_Map"
+          }
+        ],
+        "title": "Satellite"
+      }
+    },
+    {
+      "name": "Google Terrain",
+      "printOptions": {
+        "baseMapLayers": [
+          {
+            "layerType": "ArcGISTiledMapServiceLayer",
+            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+            "visibility": true,
+            "opacity": 1,
+            "title": "World_Topo_Map"
+          }
+        ],
+        "title": "Topographic"
+      }
+    }
+  ],
+  "printOptions": {
+    "url": "https://gis.nhvr.gov.au/arcgis/rest/services/NHVR_Custom_Printing/ExportWebMapWithRestrictions/GPServer/",
+    "task": "ExportWebMapWithRestrictions"
+  },
+  "webMap": {
+    "baseMap": {
+      "baseMapLayers": [
+        {
+          "id": "defaultBasemap_0",
+          "layerType": "ArcGISTiledMapServiceLayer",
+          "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+          "visibility": true,
+          "opacity": 1,
+          "title": "World_Topo_Map"
+        }
+      ],
+      "title": "Topographic"
+    },
+    "spatialReference": {
+      "wkid": 102100,
+      "latestWkid": 3857
+    }
+  }
+}

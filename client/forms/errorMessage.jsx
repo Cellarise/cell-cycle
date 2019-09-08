@@ -1,26 +1,30 @@
 "use strict";
 import React from "react";
+import PropTypes from 'prop-types';
+import R from 'ramda';
+import ErrorMessageBase from './errorMessageBase.jsx';
 
-function ErrorMessage(props) {
-  if (!props.showError) {
+function ErrorMessage({field, showError, error}) {
+  const _showError = R.defaultTo(field.get("showError"), showError);
+  if (!_showError) {
     return <div></div>;
   }
-  let id = `${props.name}-error`;
-  let errorMessage = props.error.charAt(0) === props.error.charAt(0).toUpperCase() ?
-    props.error :
-    `${props.label} ${props.error}`;
-  return <div className="has-error"><span className="help-block" id={id} key="error">{errorMessage}</span></div>;
+  const props = field.toJS();
+  props.error = R.defaultTo(props.error, error);
+  props.showError = true;
+  return (
+    <div className="has-error">
+      <ErrorMessageBase {...props}/>
+    </div>
+  );
 }
 
 ErrorMessage.displayName = "forms/errorMessage";
 ErrorMessage.propTypes = {
-  showError: React.PropTypes.bool,
-  error: React.PropTypes.string,
-  className: React.PropTypes.string
+  field: PropTypes.object.isRequired,
+  showError: PropTypes.bool,
+  error: PropTypes.string
 };
-//ErrorMessage.defaultProps = {
-//  className: "standalone-label"
-//};
 
 /**
  * @ignore

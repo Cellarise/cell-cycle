@@ -1,33 +1,50 @@
 {
-  "ecmaFeatures": {
-    "jsx": true,
-    "arrowFunctions": true,
-    "forOf": true
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
   },
   "env": {
-    "browser": true,
-    "node": true
+    "browser": true
   },
   "globals": {
     //google analytics global variables
     "ga": false
   },
   "rules": {
+    "no-multiple-empty-lines": [1, {"max": 2}],
     "func-style": [2, "declaration", { "allowArrowFunctions": true }], //- use var to declare functions to prevent errors related hoisting (functions used before declared
+    "func-names": 1, //- require function expressions to have a name (warning only to allow developer choice)
     "no-console": 0,
+    "no-useless-escape": 2,
     "no-extra-parens": 0, // - disallow unnecessary parentheses (off by default)
     "new-cap": 0,
     "quote-props": 0,
-    "babel/generator-star-spacing": 1,
-    "babel/new-cap": 0,
-    "babel/object-curly-spacing": 0,
-    "babel/object-shorthand": 0,
-    "babel/arrow-parens": 0,
-    "strict": 0
+    "strict": 0,
+    "react/prop-types": ["warn"],
+    "react/display-name": ["warn"],
+    "react/no-unused-prop-types": ["warn"],
+    "react/self-closing-comp": ["warn"],
+    "react/no-danger": ["error"],
+    "react/no-did-update-set-state": ["error"],
+    "react/no-did-mount-set-state": ["error"],
+    "react/no-string-refs": ["error"],
+    "react/no-render-return-value": ["error"],
+    "react/prefer-stateless-function": ["error"],
+    "react/style-prop-object": ["error"],
+    "react/jsx-key": ["error"],
+    "react/jsx-no-target-blank": ["error"],
+    "react/jsx-no-comment-textnodes": ["error"]
   },
   "parser": "babel-eslint",
   "plugins": [
-    "babel",
     "react"
-  ]
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "settings": {
+    "react": {
+      "createClass": "createClass", // Regex for Component Factory to use, default to "createClass"
+      "pragma": "React",  // Pragma to use, default to "React"
+      "version": "15.0" // React version, default to the latest React stable release
+    }
+  }
 }

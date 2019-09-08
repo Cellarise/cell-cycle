@@ -2,7 +2,7 @@
 import R from 'ramda';
 import Immutable from 'immutable';
 import moment from "moment";
-import {logger} from '../lib/globals';
+import {logger} from '../globals';
 
 /**
  * Create a synthetic event simulating a DOM event
@@ -13,9 +13,10 @@ import {logger} from '../lib/globals';
  * which provides an additional field in addition to the name and value
  * @param {Object} [objectData] - store other object containing data
  * @param {String} [dataRecordIndex] - the data record index
+ * @param {String} [dataRecordId] - the data record id
  * @return {DOM.Event} - a synthetic event simulating a DOM event
  */
-export function createSyntheticEvent(name, value, embeddedPath, type, objectData, dataRecordIndex) {
+export function createSyntheticEvent(name, value, embeddedPath, type, objectData, dataRecordIndex, dataRecordId) {
   return {
     "currentTarget": {
       "getAttribute": (attr) => {
@@ -28,6 +29,8 @@ export function createSyntheticEvent(name, value, embeddedPath, type, objectData
             return objectData ? JSON.stringify(objectData) : null;
           case "data-record-idx":
             return dataRecordIndex ? dataRecordIndex : null;
+          case "data-record-id":
+            return dataRecordId ? dataRecordId : null;
           case "data-type":
           case "type":
             return embeddedPath ? "*" : R.defaultTo("text", type);
@@ -98,6 +101,21 @@ export function getRecordIndex(event) {
 }
 
 /**
+ * Get the record id attached to the triggering DOM component
+ * @param {DOM.Event} event - the DOM event object
+ * @return {Number} - the record id attached to the triggering DOM component
+ */
+export function getRecordId(event) {
+  var value;
+  if (!event) {
+    logger.warn('domDriverUtils.getRecordId - no event object so returned null');
+    return null;
+  }
+  value = event.currentTarget.getAttribute('data-record-id');
+  return !R.isNil(value) && !isNaN(Number(value)) ? Number(value) : null;
+}
+
+/**
  * Get the embedded path attached to the triggering DOM component
  * @param {DOM.Event} event - the DOM event object
  * @return {Array} - the embedded path attached to the triggering DOM component
@@ -138,6 +156,9 @@ export function getValue(event, raw) {
     return event.currentTarget.checked;
   }
   if (dataType === "number") {
+    if (R.isNil(dataValue)) {
+      return null;
+    }
     // As Number("") returns 0, ensure we pass back no value
     if (dataValue === "") {
       return null;
@@ -156,7 +177,7 @@ export function getValue(event, raw) {
     if (dataValue === "") {
       return null;
     }
-    return moment(dataValue, ["DD-MMM-YYYY", "DD/M/YYYY"]).toDate();
+    return moment(dataValue, ["DD-MMM-YYYY", "DD/M/YYYY", "MMM/YYYY"]).toDate();
   }
   if (dataType === "JSON" && R.is(Object, dataValue)) {
     return dataValue;
@@ -193,6 +214,24 @@ export function setStoreProperty(model, action, drivers, path) {
 }
 
 /**
+ * Update the data field name of a DOM event
+ * @param {DOM.event} event - the DOM event
+ * @param {String} name - the event name to update
+ * @return {DOM.Event} - a synthetic event simulating a DOM event with field name updated
+ */
+export function updateEventName(event, name) {
+  return createSyntheticEvent(
+    name,
+    getValue(event),
+    getEmbeddedPath(event),
+    getType(event),
+    null,
+    null,
+    getRecordId(event)
+  );
+}
+
+/**
  * Update the data value of a DOM event
  * @param {DOM.event} event - the DOM event
  * @param {String} value - the event value to update
@@ -203,6 +242,27 @@ export function updateEventValue(event, value) {
     getFieldName(event),
     value,
     getEmbeddedPath(event),
-    getType(event)
+    getType(event),
+    null,
+    null,
+    getRecordId(event)
+  );
+}
+
+/**
+ * Update the data embedded path of a DOM event
+ * @param {DOM.event} event - the DOM event
+ * @param {String} value - the event embedded path to update
+ * @return {DOM.Event} - a synthetic event simulating a DOM event with embedded path updated
+ */
+export function updateEventEmbeddedPath(event, embeddedPath) {
+  return createSyntheticEvent(
+    getFieldName(event),
+    getValue(event),
+    embeddedPath,
+    getType(event),
+    null,
+    null,
+    getRecordId(event)
   );
 }

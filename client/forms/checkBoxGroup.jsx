@@ -1,5 +1,6 @@
 "use strict";
 import React from "react";
+import PropTypes from 'prop-types';
 import R from 'ramda';
 import classnames from 'classnames';
 import CheckBox from './checkBox.jsx';
@@ -8,27 +9,27 @@ import ErrorMessage from './errorMessage.jsx';
 
 function CheckBoxGroup(props) {
   const {activeRecord, embeddedPath, className} = props;
-  const activeField = activeRecord[embeddedPath[0]];
+  const field = activeRecord.get(embeddedPath[0]);
   return (
     <fieldset className={classnames("radio-group", className)}>
-      <Label legend={true} className="standalone-label-wrap" {...activeField}/>
+      <Label legend={true} className="standalone-label-wrap" field={field}/>
       <div className="row">
-        {renderCheckBoxes(props, activeField.name)}
+        {renderCheckBoxes(props, field.get("name"))}
       </div>
-      <ErrorMessage className="standalone-label-wrap" {...activeField}/>
+      <ErrorMessage field={field}/>
     </fieldset>
   );
 }
 
 CheckBoxGroup.displayName = "CheckBoxGroup";
 CheckBoxGroup.propTypes = {
-  activeRecord: React.PropTypes.object.isRequired,
-  embeddedPath: React.PropTypes.array.isRequired,
-  actions: React.PropTypes.object.isRequired,
-  className: React.PropTypes.string,
-  colSpacingClassName: React.PropTypes.string,
-  labelFieldName: React.PropTypes.string,
-  valueFieldName: React.PropTypes.string
+  actions: PropTypes.object.isRequired,
+  activeRecord: PropTypes.object.isRequired,
+  embeddedPath: PropTypes.array.isRequired,
+  className: PropTypes.string,
+  colSpacingClassName: PropTypes.string,
+  labelFieldName: PropTypes.string,
+  valueFieldName: PropTypes.string
 };
 CheckBoxGroup.defaultProps = {
   className: "col-xs-12",
@@ -37,32 +38,32 @@ CheckBoxGroup.defaultProps = {
 };
 
 function renderCheckBoxes(props, groupId) {
-  const {activeRecord, embeddedPath, actions, labelFieldName, valueFieldName, colSpacingClassName} = props;
-  const activeField = R.path(embeddedPath, activeRecord);
-  if (R.isNil(activeField) || !R.is(Array, activeField)) {
+  const {activeRecord, embeddedPath, actions, labelFieldName, valueFieldName, colSpacingClassName, disabled} = props;
+  const valueArr = activeRecord.getIn(embeddedPath);
+  if (R.isNil(valueArr) || valueArr.size === 0) {
     return null;
   }
-  const colSpacingClass = R.isNil(colSpacingClassName) ? getColSpacingClass(activeField) : colSpacingClassName;
-  return R.addIndex(R.map)(
+  const colSpacingClass = R.isNil(colSpacingClassName) ? getColSpacingClass(valueArr) : colSpacingClassName;
+  return valueArr.map(
     (label, idx) => {
       return (
         <div key={idx} className={colSpacingClass}>
           <CheckBox
             standalone={true}
-            {...activeField[idx][valueFieldName]} {...actions}
-            id={groupId + "-" + activeField[idx][labelFieldName].value + "-" + idx}
-            label={activeField[idx][labelFieldName].value}
+            field={valueArr.getIn([idx, valueFieldName])}
+            actions={actions}
+            id={groupId + "-" + valueArr.getIn([idx, labelFieldName, "value"]) + "-" + idx}
+            label={valueArr.getIn([idx, labelFieldName, "value"])}
             embeddedPath={R.concat(embeddedPath, [idx])}
+            disabled={disabled === true}
           />
         </div>
       );
-    },
-    activeField
-  );
+    });
 }
 
 function getColSpacingClass(valueArr) {
-  switch (valueArr.length) {
+  switch (valueArr.size) {
     case 1:
       return "col-xs-12";
     case 2:

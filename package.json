@@ -1,11 +1,13 @@
 {
-  "author": "John Barry",
+  "author": {
+    "name": "John Barry"
+  },
   "name": "cell-cycle",
   "description": "The Cellarise Cycle framework.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cellarise/cell-cycle.git"
+    "url": "git+https://github.com/Cellarise/cell-cycle.git"
   },
   "scripts": {
     "code analysis": "cpm gulp code_analysis",
@@ -117,9 +119,6 @@
     "buildTimestamp": "2016-08-11T14:14:29.708Z",
     "adminEmail": "mail@nhvr.gov.au"
   },
-  "engines": {
-    "node": "4.4.7"
-  },
   "main": "./lib",
   "babel": {
     "presets": [
@@ -153,12 +152,27 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
-    "bowser": "^1.9.4",
-    "classnames": "^2.2.0",
-    "immutable": "^3.8.2",
-    "moment": "^2.11.0",
-    "ramda": "^0.26.0",
-    "react": "^16.6.3"
+    "accounting": "^0.4.1",
+    "baconjs": "^0.7.89",
+    "bootstrap": "^3.3.2",
+    "bootstrap-datepicker": "^1.5.1",
+    "bowser": "^1.0.0",
+    "classnames": "^2.2.5",
+    "dropzone": "^4.2.0",
+    "debug": "^2.1.2",
+    "font-awesome": "^4.3.0",
+    "fullcalendar": "^3.0.1",
+    "immutable": "^3.7.6",
+    "marked": "^0.3.5",
+    "moment": "^2.22.2",
+    "nanoscroller": "^0.8.7",
+    "papaparse": "4.1.2",
+    "ramda": "^0.23.0",
+    "react": "^16.7.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.7.0",
+    "pdfobject": "^2.0.201604172",
+    "react-themeable": "^1.0.1"
   },
   "optionalDependencies": {},
   "bugs": {
@@ -170,5 +184,16 @@
       "name": "cellarise",
       "email": "cellarise@outlook.com"
     }
-  ]
+  ],
+  "bin": {},
+  "gitHead": "9a96adfaab5afe48e66a5c5a0e4a6f494430b49b",
+  "dist": {
+    "shasum": "fb7577338994f9d5f435f708d5cc675a0f5cb314",
+    "tarball": "https://registry.npmjs.org/cell-cycle/-/cell-cycle-0.0.1.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/cell-cycle-0.0.1.tgz_1470924891071_0.8788121223915368"
+  },
+  "_resolved": "https://registry.npmjs.org/cell-cycle/-/cell-cycle-0.0.1.tgz"
 }

@@ -5,6 +5,7 @@
   },
   "extends": "eslint:recommended",
   "rules": {
+    "no-useless-escape": 2,
     //Stylistic Issues
     "brace-style": [2, "1tbs", {
       "allowSingleLine": true
@@ -123,7 +124,6 @@
 
 
     //Possible Errors
-    "no-useless-escape": 2,
     "no-cond-assign": 2, // - disallow assignment in conditional expressions
     "no-console": 2, // - disallow use of console (off by default in the node environment)
     "no-constant-condition": 2, // - disallow use of constant expressions in conditions
