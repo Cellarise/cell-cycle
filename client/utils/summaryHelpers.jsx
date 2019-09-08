@@ -127,7 +127,7 @@ export function getPermitBasedCaseNumberHeader(record) {
 }
 
 export function getAccountHeader(account, accountType, showChannel) {
-  let item = {}, fileListField, title, accountPrefix;
+  let fileListField, title, accountPrefix;
   if (R.isNil(account)) {
     return null;
   }

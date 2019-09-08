@@ -16,7 +16,7 @@ import {createALink} from "../libraries/router";
  * @param {String} [props.style] - styles to add to a link
  * @return {React.Element} react element
  */
-function ALink({text, href, hashStr, className, style, rel, openInNew, inputBoxLink}) {
+function ALink({text, href, hashStr, className, rel, openInNew, inputBoxLink}) {
   return (
     <a
       href={R.defaultTo(createALink(hashStr), href)}

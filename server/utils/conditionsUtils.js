@@ -1,6 +1,6 @@
 "use strict";
 const R = require('ramda');
-const moment = require('moment')
+const moment = require('moment');
 
 function standardiseFieldTypesInTemplateConfig(templateConfig) {
   if (R.isNil(templateConfig)) {

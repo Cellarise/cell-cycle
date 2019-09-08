@@ -1,5 +1,5 @@
 import R from 'ramda';
-import React from 'react';
+import React from 'react'; //eslint-disable-line
 import PropTypes from 'prop-types';
 import {logger} from '../globals';
 import * as recordUtils from '../utils/recordUtils';

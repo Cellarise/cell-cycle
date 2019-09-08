@@ -1,7 +1,6 @@
 import React from 'react'; //eslint-disable-line
 import R from 'ramda';
 import {appendToWindowLocationHashPageStr, setWindowLocationHash} from "../libraries/router";
-import DropdownBox from '../collection/dropdownBox.jsx';
 
 
 function ActionPanel({actionPanelConfig, disabled, authorised, tooltip}) {
@@ -15,16 +14,6 @@ function ActionPanel({actionPanelConfig, disabled, authorised, tooltip}) {
     <div className="row margin-left-0">
       <div className="col-xs-12">
         {R.addIndex(R.map)((applicationType, idx) => {
-          const dropdownRecords = [
-            {
-              "label": applicationType.buttonLabel,
-              "action": () => {
-                setWindowLocationHash({
-                  "page": appendToWindowLocationHashPageStr(applicationType.pagePartial)
-                });
-              }
-            }
-          ];
           return (
             <div key={idx} className={applicationType.columnClass}
                  aria-disabled={_disabled}

@@ -39,7 +39,7 @@ function PermitSchemeLookupField(props) {
 
 function PermitSchemeLookup(props) {
   let {field, actions, onChange, onBlur, foreignKeyStore, relationField, readOnly, disabled, onChangeId, onBlurId,
-    accountType, width, name, alwaysExpanded, filterArchived, filterState,
+    width, name, alwaysExpanded, filterArchived,
     approvalType, partnerAccountId, permitApplicationId,
     includeBlank, standalone, showLabel, hasFeedback, tableStyle, embeddedPath, showAddonBefore, theme} = props;
   const origRecords = R.defaultTo([], foreignKeyStore.getIn(['search', 'records']));

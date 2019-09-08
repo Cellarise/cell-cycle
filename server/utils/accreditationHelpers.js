@@ -77,25 +77,29 @@ function getAccreditationModulesAndExpiryHTMLTable(applicationModel) {
   if (applicationModel.moduleMass === true) {
     table = table + '<tr>' +
       '<td><p>Mass Management</p></td>' +
-      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationMassExpiry)).format("DD/MM/YYYY") + '</p></td>' +
+      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationMassExpiry)).format("DD/MM/YYYY") +
+      '</p></td>' +
       '</tr>';
   }
   if (applicationModel.moduleMaintenance === true) {
     table = table + '<tr>' +
       '<td><p>Maintenance Management</p></td>' +
-      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationMaintenanceExpiry)).format("DD/MM/YYYY") + '</p></td>' +
+      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationMaintenanceExpiry)).format("DD/MM/YYYY") +
+      '</p></td>' +
       '</tr>';
   }
   if (applicationModel.moduleBFM === true) {
     table = table + '<tr>' +
       '<td><p>Basic Fatigue Management</p></td>' +
-      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationBFMExpiry)).format("DD/MM/YYYY") + '</p></td>' +
+      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationBFMExpiry)).format("DD/MM/YYYY") +
+      '</p></td>' +
       '</tr>';
   }
   if (applicationModel.moduleAFM === true) {
     table = table + '<tr>' +
       '<td><p>Advanced Fatigue Management</p></td>' +
-      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationAFMExpiry)).format("DD/MM/YYYY") + '</p></td>' +
+      '<td><p>' + moment(R.defaultTo(new Date(), accreditation.accreditationAFMExpiry)).format("DD/MM/YYYY") +
+      '</p></td>' +
       '</tr>';
   }
   table = table

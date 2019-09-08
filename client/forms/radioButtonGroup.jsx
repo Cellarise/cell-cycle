@@ -9,7 +9,7 @@ import ErrorMessage from './errorMessage.jsx';
 
 
 function RadioButtonGroup(props) {
-  const {field, className, horizontal, labelSpacing, tableMode, tableConfig} = props;
+  const {field, className, horizontal, labelSpacing, tableMode} = props;
   if (horizontal) {
     return (
       <div className={tableMode ? "" : "row"}>
@@ -136,7 +136,7 @@ function renderRadioButtons(props) {
       );
     },
     reverse ? R.reverse(radioButtonLabels) : radioButtonLabels
-  );;
+  );
 }
 
 

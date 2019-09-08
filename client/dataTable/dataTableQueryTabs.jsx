@@ -1,6 +1,6 @@
 "use strict";
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'; //eslint-disable-line
+import PropTypes from 'prop-types'; //eslint-disable-line
 import createReactClass from 'create-react-class';
 import R from 'ramda';
 import Button from '../forms/button.jsx';

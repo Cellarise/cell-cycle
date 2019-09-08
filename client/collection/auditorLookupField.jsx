@@ -38,7 +38,7 @@ function AuditorLookupField(props) {
 
 function AuditorLookup(props) {
   let {field, actions, onChange, onBlur, foreignKeyStore, relationField, readOnly, disabled, onChangeId, onBlurId,
-    accountType, width, name, alwaysExpanded, filterArchived, fatigueScope, label,
+    width, name, alwaysExpanded, filterArchived, fatigueScope, label,
     includeBlank, standalone, showLabel, hasFeedback, tableStyle, embeddedPath, showAddonBefore, theme} = props;
   const origRecords = R.defaultTo([], foreignKeyStore.getIn(['search', 'records']));
   foreignKeyStore = foreignKeyStore.setIn(['search', 'records'], R.pipe(

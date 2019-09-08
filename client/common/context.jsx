@@ -45,14 +45,14 @@ module.exports = createReactClass({
       "event": event
     });
   },
-  onBeforePrint: function onBeforePrint(event) {
+  onBeforePrint: function onBeforePrint() {
     this.getChildContext().actions.push({
       "storeId": "routerUI",
       "id": "onWindowPrintEvent",
       "event": createSyntheticEvent("printMode")
     });
   },
-  onAfterPrint: function onAfterPrint(event) {
+  onAfterPrint: function onAfterPrint() {
     this.getChildContext().actions.push({
       "storeId": "routerUI",
       "id": "onWindowPrintEvent",

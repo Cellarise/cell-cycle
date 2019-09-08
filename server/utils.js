@@ -3,7 +3,6 @@ const Immutable = require('immutable');
 const R = require('ramda');
 const moment = require('moment');
 const accounting = require('accounting');
-const permitApplicationClass = require('../../../common/data/applicationClass.json');
 
 const AEST_UTC_OFFSET = 600;
 
@@ -132,7 +131,6 @@ function getApplicationNameConvention(applicationClassHeader, applicationClass, 
     return "";
   }
   _applicationClass = R.concat(applicationClass, " Application");
-  modeTitle = applicationClassHeader ? _applicationClass : applicationType;
   if (R.isNil(applicationType) || applicationClass === applicationType ||
     R.contains(applicationClass, ["Cancel Permit"])) {
     modeTitle = _applicationClass;
@@ -144,20 +142,20 @@ function getApplicationNameConvention(applicationClassHeader, applicationClass, 
 }
 
 function getCalculatedExpiryStatus(status, compareDate) {
-  var updatedStatus = status
+  var updatedStatus = status;
   if (!R.isNil(compareDate) && !R.isNil(updatedStatus) && updatedStatus === "Current") {
     const compareDateArray = R.slice(0, 3, moment(compareDate).toArray());
     const currentDateArray = R.slice(0, 3, moment(new Date()).toArray());
     const differenceDateByMonth = moment(compareDateArray).diff(currentDateArray, 'months');
     const differenceDate = moment(compareDate).diff(moment(new Date()), 'hours');
     if (differenceDateByMonth < 3) {
-      updatedStatus = "Expires soon"
+      updatedStatus = "Expires soon";
     }
     if (differenceDate < 0) {
-      updatedStatus = "Expired"
+      updatedStatus = "Expired";
     }
     if (differenceDateByMonth < 0) {
-      updatedStatus = "Suspended"
+      updatedStatus = "Suspended";
     }
   }
   return updatedStatus;

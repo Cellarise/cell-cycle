@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use strict";
 const R = require('ramda');
 const moment = require('moment');

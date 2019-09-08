@@ -1,5 +1,5 @@
 "use strict";
-import React from "react";
+import React from "react"; //eslint-disable-line
 import createReactClass from 'create-react-class'
 import {createSyntheticEvent} from '../utils/domDriverUtils';
 import {$} from 'cell-cycle/client/globals';

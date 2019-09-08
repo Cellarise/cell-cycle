@@ -27,8 +27,7 @@ CharacterCounter.displayName = "forms/CharacterCounter";
 CharacterCounter.propTypes = {
   field: PropTypes.object,
   maxLength: PropTypes.number,
-  value: PropTypes.string,
-  maxLength: PropTypes.number,
+  value: PropTypes.string
 };
 
 /**

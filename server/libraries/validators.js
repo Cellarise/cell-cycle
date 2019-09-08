@@ -319,7 +319,6 @@ var validators = {
     const valueArr = this[attr];
     const field = conf.field;
     const field2 = conf.field2;
-    const fieldStatus = conf.fieldStatus;
     if (validators.blank(valueArr)) {
       return;
     }
@@ -961,10 +960,9 @@ var validators = {
           done();
         });
         return;
-      } else {
-        process.nextTick(done);
-        return;
       }
+      process.nextTick(done);
+      return;
     }
   },
   "validateAcn": function validateAcn(attr, conf, err) {
@@ -1057,7 +1055,7 @@ var validators = {
     if (!R.isNil(value) && !R.isNil(conf._value) && R.contains(value, conf._value)) {
       err(conf.message);
     }
-  },
+  }
 };
 
 module.exports = validators;

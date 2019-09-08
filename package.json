@@ -185,15 +185,5 @@
       "email": "cellarise@outlook.com"
     }
   ],
-  "bin": {},
-  "gitHead": "9a96adfaab5afe48e66a5c5a0e4a6f494430b49b",
-  "dist": {
-    "shasum": "fb7577338994f9d5f435f708d5cc675a0f5cb314",
-    "tarball": "https://registry.npmjs.org/cell-cycle/-/cell-cycle-0.0.1.tgz"
-  },
-  "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/cell-cycle-0.0.1.tgz_1470924891071_0.8788121223915368"
-  },
-  "_resolved": "https://registry.npmjs.org/cell-cycle/-/cell-cycle-0.0.1.tgz"
+  "bin": {}
 }

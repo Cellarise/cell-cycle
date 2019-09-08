@@ -115,7 +115,7 @@ function getActiveOperationsAccount(context) {
 }
 
 function isInAccountAndRoleFromContextWithImpersonation(roleMatrix, context, principalId) {
-  let accountType, accountId, accountIdField;
+  let accountType, accountId;
   if (!R.isNil(context.accessToken) && !R.isNil(context.accessToken.accountType)) {
     accountType = context.accessToken.accountType;
     accountId = context.accessToken.accountId;

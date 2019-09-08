@@ -6,7 +6,7 @@ import R from 'ramda';
 import * as aria from '../libraries/accessibility';
 import {dropdown} from '../widgets/dropdown';
 import {effects} from '../widgets/effects';
-import {shallowEqual, fixedLength} from '../utils';
+import {shallowEqual} from '../utils';
 import * as routerLibrary from '../libraries/router';
 import {eventHandler} from '../utils/viewUtils';
 import {createSyntheticEvent} from '../utils/domDriverUtils';

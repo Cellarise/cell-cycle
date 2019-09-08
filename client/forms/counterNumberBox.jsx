@@ -3,10 +3,9 @@ import React from "react";
 import R from "ramda";
 import Button from './button';
 import {createSyntheticEvent} from "../utils/domDriverUtils";
-import {eventHandler, getActiveRecord, getEventHandler} from "../utils/viewUtils";
+import {eventHandler, getEventHandler} from "../utils/viewUtils";
 import Label from "./label";
 import NumberBox from "./numberBox.jsx";
-import RadioButtonGroup from "../../../../client/source/view/features/admin/permitType/upsert";
 
 function CounterNumberBox(props) {
   const {field, label, actions, store, embeddedPath, editable} = props;

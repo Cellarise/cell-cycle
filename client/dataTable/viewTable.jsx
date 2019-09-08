@@ -129,12 +129,6 @@ function renderHeader(tableModel, sort, onCollectionPropChange) {
 }
 
 function renderFilterHeader(tableModel, props) {
-  const _tableModel = R.filter(
-    (field) => {
-      return R.has("validation", field);
-    },
-    tableModel
-  );
   if (tableModel.length > 0) {
     return R.addIndex(R.map)((col, colNum) => {
       return renderFilterHeaderCell(col, colNum, props);
@@ -142,7 +136,7 @@ function renderFilterHeader(tableModel, props) {
   }
 }
 
-function renderFilterHeaderCell(col, colNum, props, collection) {
+function renderFilterHeaderCell(col, colNum, props) {
   if (!R.isNil(col) && R.is(Object, col) && !R.isNil(col.validation) && !R.isNil(col.validation.type)) {
     const colType = col.validation.type
     const editableTableFilterFields = props.editableTableFilterFields;
